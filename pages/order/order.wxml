@@ -1,0 +1,57 @@
+<!--详情-->
+<view class="detail_con">
+  <view class='order_banner'>
+    <image src="./../../images/orderbanner.jpg"></image>
+  </view>
+  <!-- 购车金融方案 -->
+  <view class='info_title'>请选择您的金融方案</view>
+  <view class='userinfo_box'>
+    <view class='userinfo_tr tr_border flex_sc'>
+      <view class='formlabel'>想买车型</view>
+      <input class='formname' bindinput='carname' placeholder="请输入车型"/>
+    </view>
+    <view class='userinfo_tr tr_border flex_sc'>
+      <view class='formlabel'>首付</view>
+      <view class='finance_box flex_sc'>
+        <view class='finance_item flex_lc' wx:for="{{firPay}}" wx:key="{{index}}" bindtap='firPayFun' data-val="{{item.name}}">
+          <view class='finance_radio flex_cc {{item.name == firSel ? "finance_active":""}}'><text class='iconfont icon-duihao'></text></view>
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='userinfo_tr tr_border flex_sc'>
+      <view class='formlabel'>期数</view>
+      <view class='finance_box flex_sc'>
+        <view class='finance_item flex_lc' wx:for="{{weekCount}}" wx:key="{{index}}" bindtap='weekCountFun' data-val="{{item.name}}">
+          <view class='finance_radio flex_cc {{item.name == weekSel ? "finance_active":""}}'><text class='iconfont icon-duihao'></text></view>
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='userinfo_tr flex_sc'>
+      <view class='formlabel'>月供</view>
+      <view class='finance_box flex_sc'>
+        <view class='finance_item flex_lc' wx:for="{{moonPay}}" wx:key="{{index}}" bindtap='moonPayFun' data-val="{{item.name}}">
+          <view class='finance_radio flex_cc {{item.name == moonPaySel ? "finance_active":""}}'><text class='iconfont icon-duihao'></text></view>
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 预约信息 -->
+  <view class='info_title'>预约信息</view>
+  <view class='userinfo_box'>
+    <view class='userinfo_tr tr_border flex_sc'>
+      <view class='formlabel'>姓名</view>
+      <input class='formname' bindinput='username' placeholder="请输入姓名"/>
+    </view>
+    <view class='userinfo_tr flex_sc'>
+      <view class='formlabel'>手机号</view>
+      <view class='formphone'>{{mobile}}</view>
+    </view>
+    <!-- 按钮 -->
+    <view class='formbtn_box'>
+      <view class='form_btn flex_cc' bindtap='orderSubmit'>立即定制</view>
+    </view>
+  </view>
+</view>

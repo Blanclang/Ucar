@@ -1,0 +1,32 @@
+<!--详情-->
+<view class="detail_con">
+  <view class='info_title'>预约车型</view>
+  <!-- 汽车简介区 -->
+  <view class='carinfo_item flex_lc'>
+    <image class='carimg' src="{{detailInfo.coverImg}}"/>
+    <view class='carinfo_con'>
+      <view class='car_tit'>{{detailInfo.familyName}}</view>
+      <view class='car_style'>{{detailInfo.commonName}}</view>
+      <view class='car_Price'>指导价 {{detailInfo.listPrice}}万</view>
+      <view class='car_fee flex_sc'>
+        <p>首付{{detailInfo.downPay}}万</p>
+        <p>月供{{detailInfo.monthlyPay}}元</p>
+      </view>
+    </view>
+  </view>
+  <view class='info_title'>预约信息</view>
+  <view class='userinfo_box'>
+    <view class='userinfo_tr tr_border flex_sc'>
+      <view class='formlabel'>姓名</view>
+      <input class='formname' bindinput='username' placeholder="请输入姓名" auto-focus/>
+    </view>
+    <view class='userinfo_tr flex_sc'>
+      <view class='formlabel'>手机号</view>
+      <view class='formphone'>{{mobile}}</view>
+    </view>
+    <!-- 按钮 -->
+    <view class='formbtn_box'>
+      <view class='form_btn flex_cc' bindtap='appointSubmit'>立即预约</view>
+    </view>
+  </view>
+</view>

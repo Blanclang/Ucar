@@ -1,0 +1,65 @@
+<!--home.wxml-->
+<view class="frame_container">
+  <!-- banner -->
+  <view class="swiper_box">
+    <swiper indicator-dots="true" autoplay="true" interval="3000" indicator-color="#ffffff" indicator-active-color="#0070c0">
+       <block wx:for="{{imgUrls}}" wx:key="{{index}}"> 
+        <swiper-item>
+           <image src="{{item}}" class="slide-image"/> 
+        </swiper-item>
+       </block> 
+    </swiper>
+  </view>
+  <!-- title -->
+  <view class='tab_title flex_lc'>
+    <image class='tit_icon' src="./../../images/ucaitit.png"/> 
+    <!-- 豪车<text class='iconfont icon-UxiangLOGO'></text>选 -->
+  </view>
+  <!-- nav导航 -->
+  <view class='nav_box'>
+    <view class="nav_item {{currentTab==item.val?'item_active':''}}" wx:for="{{navData}}" wx:key="{{index}}" bindtap='navSel'
+    data-val="{{item.val}}">
+      <view class='nav_con flex_lc'>
+        <image src="{{item.icon}}"/> 
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 车辆信息列表 -->
+  <view class='carinfo_list'>
+    <navigator class='carinfo_item flex_lc' wx:for="{{carData}}" wx:key="{{index}}" hover-class="none" url="/pages/detail/detail?val={{item.vehicleId}}">
+      <image wx:if="{{item.coverImg}}" class='carimg' src="{{item.coverImg}}"/> 
+      <view wx:if="{{!item.coverImg}}" class='car_default flex_cc'><text class='iconfont icon-UxiangLOGO'></text></view>
+      <view class='carinfo_con'>
+        <view class='car_tit'>{{item.familyName}}</view>
+        <view class='car_style'>{{item.commonName}}</view>
+        <view class='car_fee flex_sc'>
+          <p>首付{{item.downPay}}万</p>
+          <p>月供{{item.monthlyPay}}元</p>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <!-- 无数据 -->
+  <view wx:if="{{carData.length==0}}" class='nodata_box flex_cc'>
+    <text class='nodata_icon iconfont icon-jijiangdaozhang'></text>
+    <view class='nodata_tit'> 即将推出~ </view>
+  </view> 
+  <!-- 联系我们 -->
+  <!-- <view class='contact_us flex_cc'>
+    <view class='contact_tit'> 联系我们 </view>
+    <view class='contact_icon' bindtap="makePhone">
+      <text class='iconfont icon-UxiangLOGO1'></text>
+    </view>
+    <view class='contact_phone' bindtap="makePhone">400-180-1234</view>
+  </view> -->
+  <!-- 按钮 -->
+  <view class='listbtn_box flex_sc'>
+    <navigator class='listbtn flex_cc' url="/pages/order/order">
+      <text class='iconfont icon-licaijisuanqi diy_icon'></text>定制您专属的优享方案
+    </navigator>
+    <navigator class='listbtn flex_cc' url="/pages/card/card">
+      <text class='iconfont icon-huiyuan menber_icon'></text>尊享会员X值
+    </navigator>
+  </view>
+</view>

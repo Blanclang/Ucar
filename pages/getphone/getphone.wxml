@@ -1,0 +1,9 @@
+<!--登陆-->
+<view class="login_box">
+  <view class='login_icon flex_cc'>
+    <!-- <text class='iconfont icon-UxiangLOGO1'></text> -->
+    <image src="./../../images/logo.png"/>
+    <view class='login_tit'>请绑定手机号</view>
+  </view>
+  <button class='login_btn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">绑定手机</button>
+</view>

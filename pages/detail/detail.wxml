@@ -1,0 +1,1333 @@
+<!--详情-->
+<view class="detail_con">
+  <!-- 汽车简介区 -->
+  <view class='carinfo_item flex_lc'>
+    <image class='carimg' src="{{detailInfo.coverImg}}"/>
+    <view class='carinfo_con'>
+      <view class='car_tit'>{{detailInfo.familyName}}</view>
+      <view class='car_style'>{{detailInfo.commonName}}</view>
+      <view class='car_Price'>指导价 {{detailInfo.listPrice}}万</view>
+      <view class='car_fee flex_sc'>
+        <p>首付{{detailInfo.downPay }}万</p>
+        <p>月供{{detailInfo.monthlyPay}}元</p>
+      </view>
+    </view>
+  </view>
+  <!-- 详情 -->
+  <view class='detail_box'>
+    <view class='detail_tabs flex_sc'>
+      <view class="tab_cell flex_cc {{tabActive==1?'tab_active':''}}" bindtap='detailTab' data-val="1">产品详情</view>
+      <view class="tab_cell flex_cc {{tabActive==2?'tab_active':''}}" bindtap='detailTab' data-val="2">车辆参数</view>
+      <view class="tab_cell flex_cc {{tabActive==3?'tab_active':''}}" bindtap='detailTab' data-val="3">常见问题</view>
+    </view>
+    <view class='detail_cons'>
+      <view wx:if="{{tabActive == 1}}" class='detail_info'>
+        <!-- <view class='product_detail'>
+          <image src="./../../images/product_detail2.jpg" mode="widthFix"/>
+        </view>  -->
+        <view class='detail_img'>
+          <image wx:if="{{detailInfo.detailImg1}}" src="{{detailInfo.detailImg1}}" mode="widthFix"></image>
+          <image wx:if="{{detailInfo.detailImg2}}" src="{{detailInfo.detailImg2}}" mode="widthFix"></image>
+          <image wx:if="{{detailInfo.detailImg3}}" src="{{detailInfo.detailImg3}}" mode="widthFix"></image>
+        </view> 
+      </view>
+      <view wx:if="{{tabActive == 2}}" class='detail_info'>
+        <view class='car_tabletit'>基本配置</view>
+        <view class='car_table'>
+          <view class='car_tr'>
+            <view class='car_name'>ABS标示</view>
+            <view class='car_val'>{{carInfo.vcBase.absFlag}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>安全气囊数</view>
+            <view class='car_val'>{{carInfo.vcBase.airbagNum}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>防盗标识</view>
+            <view class='car_val'>{{carInfo.vcBase.antiTheft}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>气缸排列形式</view>
+            <view class='car_val'>{{carInfo.vcBase.arrayType}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>车身结构</view>
+            <view class='car_val'>{{carInfo.vcBase.bodyType}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>品牌名称(新品牌)</view>
+            <view class='car_val'>{{carInfo.vcBase.brandName}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>变速箱</view>
+            <view class='car_val'>{{carInfo.vcBase.bsx}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>配置等级</view>
+            <view class='car_val'>{{carInfo.vcBase.cfgLevel}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>长×宽×高(mm)</view>
+            <view class='car_val'>{{carInfo.vcBase.ckg}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>厂家名称</view>
+            <view class='car_val'>{{carInfo.vcBase.companyName}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>车身结构</view>
+            <view class='car_val'>{{carInfo.vcBase.csjg}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>车身结构</view>
+            <view class='car_val'>{{carInfo.vcBase.bodyType}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>排量</view>
+            <view class='car_val'>{{carInfo.vcBase.displacement}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>驱动形式</view>
+            <view class='car_val'>{{carInfo.vcBase.drivenType}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>排放标准</view>
+            <view class='car_val'>{{carInfo.vcBase.effluentStandard}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>发动机描述</view>
+            <view class='car_val'>{{carInfo.vcBase.engineDesc}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>发动机型号</view>
+            <view class='car_val'>{{carInfo.vcBase.engineModel}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>车系名称（新车系）</view>
+            <view class='car_val'>{{carInfo.vcBase.familyName}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>发动机</view>
+            <view class='car_val'>{{carInfo.vcBase.fdj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>燃油喷射形式 </view>
+            <view class='car_val'>{{carInfo.vcBase.fuelJetType }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>整备质量（千克）</view>
+            <view class='car_val'>{{carInfo.vcBase.fullWeight}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>最大整备质量（千克）</view>
+            <view class='car_val'>{{carInfo.vcBase.fullWeightMaxKg}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>最小整备质量（千克）</view>
+            <view class='car_val'>{{carInfo.vcBase.fullWeightMinKg}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>变速器档数</view>
+            <view class='car_val'>{{carInfo.vcBase.gearNum}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>变速箱（器）类型</view>
+            <view class='car_val'>{{carInfo.vcBase.gearboxType}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>官方0-100km/h加速(s) </view>
+            <view class='car_val'>{{carInfo.vcBase.gfjs}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>工信部综合油耗(L) </view>
+            <view class='car_val'>{{carInfo.vcBase.gxbzhyh}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>国产/进口 </view>
+            <view class='car_val'>{{carInfo.vcBase.importFlag}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>类比价 </view>
+            <view class='car_val'>{{carInfo.vcBase.kindredPrice}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>类比价含税 </view>
+            <view class='car_val'>{{carInfo.vcBase.kindredPriceTax}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>排放依据标准 </view>
+            <view class='car_val'>{{carInfo.vcBase.letStand}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>厂商指导价 </view>
+            <view class='car_val'>{{carInfo.vcBase.listPrice}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>上市年份 </view>
+            <view class='car_val'>{{carInfo.vcBase.marketDate}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>功率 </view>
+            <view class='car_val'>{{carInfo.vcBase.power}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>动力类型 </view>
+            <view class='car_val'>{{carInfo.vcBase.powerType}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>实测0-100km/h加速(s)</view>
+            <view class='car_val'>{{carInfo.vcBase.scjs}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>实测油耗(L) </view>
+            <view class='car_val'>{{carInfo.vcBase.scyh}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>实测100-0km/h制动(m)  </view>
+            <view class='car_val'>{{carInfo.vcBase.sczd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>座位数</view>
+            <view class='car_val'>{{carInfo.vcBase.seat}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>最大座位数 </view>
+            <view class='car_val'>{{carInfo.vcBase.seatMax}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>最小座位数 </view>
+            <view class='car_val'>{{carInfo.vcBase.seatMin}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>吨位 </view>
+            <view class='car_val'>{{carInfo.vcBase.tonnage}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>前轮距 </view>
+            <view class='car_val'>{{carInfo.vcBase.trackFront}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后轮距 </view>
+            <view class='car_val'>{{carInfo.vcBase.trackRear}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>底盘 </view>
+            <view class='car_val'>{{carInfo.vcBase.underpan}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>发动机气门数(单缸气门数)  </view>
+            <view class='car_val'>{{carInfo.vcBase.valveNum}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>车型分类名称 </view>
+            <view class='car_val'>{{carInfo.vcBase.vehicleClass}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>外形尺寸 </view>
+            <view class='car_val'>{{carInfo.vcBase.vehicleSize}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>总质量 </view>
+            <view class='car_val'>{{carInfo.vcBase.vehicleWeight}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>VIN </view>
+            <view class='car_val'>{{carInfo.vcBase.vinCode}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'> 轴距 </view>
+            <view class='car_val'>{{carInfo.vcBase.wheelbase}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>年款 </view>
+            <view class='car_val'>{{carInfo.vcBase.yearPattern}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>整车质保 </view>
+            <view class='car_val'>{{carInfo.vcBase.zczb}}</view>
+          </view>
+        </view>
+        <view class='car_tabletit'>车身配置</view>
+        <view class='car_table'>
+          <view class='car_tr'>
+            <view class='car_name'>长度(mm)</view>
+            <view class='car_val'>{{carInfo.vcBody.cd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>车门数(个) </view>
+            <view class='car_val'>{{carInfo.vcBody.cms}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>车身结构</view>
+            <view class='car_val'>{{carInfo.vcBody.cscsjg}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>底盘面积</view>
+            <view class='car_val'>{{carInfo.vcBody.dpmj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>高度(mm)</view>
+            <view class='car_val'>{{carInfo.vcBody.gd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后轮距(mm) </view>
+            <view class='car_val'>{{carInfo.vcBody.hlj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>宽度(mm) </view>
+            <view class='car_val'>{{carInfo.vcBody.kd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>前轮距(mm)</view>
+            <view class='car_val'>{{carInfo.vcBody.qlj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>行李厢容积(L) </view>
+            <view class='car_val'>{{carInfo.vcBody.xlxrj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>硬件特征</view>
+            <view class='car_val'>{{carInfo.vcBody.yjtz}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>油箱容积(L) </view>
+            <view class='car_val'>{{carInfo.vcBody.yxrj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>整备质量(Kg) </view>
+            <view class='car_val'>{{carInfo.vcBody.zbzl}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>轴距(mm) </view>
+            <view class='car_val'>{{carInfo.vcBody.zj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>座位数(个) </view>
+            <view class='car_val'>{{carInfo.vcBody.zws}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>最小离地间隙(mm)</view>
+            <view class='car_val'>{{carInfo.vcBody.zxldjx}}</view>
+          </view>
+        </view>
+        <view class='car_tabletit'>操控配置</view>
+        <view class='car_table'>
+          <view class='car_tr'>
+            <view class='car_name'>ABS防抱死</view>
+            <view class='car_val'>{{carInfo.vcControl.abs}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'> 车身稳定控制(ESC/ESP/DSC等) </view>
+            <view class='car_val'>{{carInfo.vcControl.cswdkz}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'> 陡坡缓降</view>
+            <view class='car_val'>{{carInfo.vcControl.dphj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后桥限滑差速器/差速锁</view>
+            <view class='car_val'>{{carInfo.vcControl.hqxhcsq}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'> 可变悬架</view>
+            <view class='car_val'>{{carInfo.vcControl.kbxj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>可变转向比</view>
+            <view class='car_val'>{{carInfo.vcControl.kbzxb}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>空气悬架</view>
+            <view class='car_val'>{{carInfo.vcControl.kqxj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>前桥限滑差速器/差速锁 </view>
+            <view class='car_val'>{{carInfo.vcControl.qqxhcsq}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>牵引力控制(ASR/TCS/TRC等) </view>
+            <view class='car_val'>{{carInfo.vcControl.qylkz}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>刹车辅助(EBA/BAS/BA等)</view>
+            <view class='car_val'>{{carInfo.vcControl.scfz}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'> 制动力分配(EBD/CBC等)</view>
+            <view class='car_val'>{{carInfo.vcControl.zdlfp}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>自动驻车/上坡辅助</view>
+            <view class='car_val'>{{carInfo.vcControl.zdzc}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>中央差速器锁止功能</view>
+            <view class='car_val'>{{carInfo.vcControl.zycsqszgn}}</view>
+          </view>
+        </view>
+        <view class='car_tabletit'>发动机配置</view>
+        <view class='car_table'>
+          <view class='car_tr'>
+            <view class='car_name'>比功率(最大功率(kw)/整备质量(kg))</view>
+            <view class='car_val'>{{carInfo.vcEngine.bgl }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>发动机描述</view>
+            <view class='car_val'>{{carInfo.vcEngine.fdjms }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>发动机特有技术</view>
+            <view class='car_val'>{{carInfo.vcEngine.fdjtyjs }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>发动机型号</view>
+            <view class='car_val'>{{carInfo.vcEngine.fdjxh }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>缸盖材料</view>
+            <view class='car_val'>{{carInfo.vcEngine.ggcl }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>缸径</view>
+            <view class='car_val'>{{carInfo.vcEngine.gj }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>缸体材料</view>
+            <view class='car_val'>{{carInfo.vcEngine.gtcl }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>供油方式 </view>
+            <view class='car_val'>{{carInfo.vcEngine.gyfs }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>环保标准</view>
+            <view class='car_val'>{{carInfo.vcEngine.hbbz }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>进气形式</view>
+            <view class='car_val'>{{carInfo.vcEngine.jqxs }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>每缸气门数(个)</view>
+            <view class='car_val'>{{carInfo.vcEngine.mgqms }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>排量(mL)</view>
+            <view class='car_val'>{{carInfo.vcEngine.pl }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>配气机构</view>
+            <view class='car_val'>{{carInfo.vcEngine.pqjg }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>气缸排列形式</view>
+            <view class='car_val'>{{carInfo.vcEngine.qgplxs }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>气缸数(个)</view>
+            <view class='car_val'>{{carInfo.vcEngine.qgs }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'> 燃料形式</view>
+            <view class='car_val'>{{carInfo.vcEngine.rlxs }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>燃油标号 </view>
+            <view class='car_val'>{{carInfo.vcEngine.rybh }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>升功率比(最大功率(kw)/排量(L))</view>
+            <view class='car_val'>{{carInfo.vcEngine.sglb }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>行程</view>
+            <view class='car_val'>{{carInfo.vcEngine.xc }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>压缩比</view>
+            <view class='car_val'>{{carInfo.vcEngine.ysb }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>最大功率(kW)</view>
+            <view class='car_val'>{{carInfo.vcEngine.zdgl }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>最大功率转速(rpm)</view>
+            <view class='car_val'>{{carInfo.vcEngine.zdglzs }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>最大马力(Ps)</view>
+            <view class='car_val'>{{carInfo.vcEngine.zdml }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>最大扭矩(N·m)</view>
+            <view class='car_val'>{{carInfo.vcEngine.zdnj }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>最大扭矩转速(rpm)</view>
+            <view class='car_val'>{{carInfo.vcEngine.zdnjzs }}</view>
+          </view>
+        </view>
+        <view class='car_tabletit'>外部配置</view>
+        <view class='car_table'>
+          <view class='car_tr'>
+            <view class='car_name'>泊车辅助 </view>
+            <view class='car_val'>{{carInfo.vcExternal.bcfz}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>车内空气调节/花粉过滤 </view>
+            <view class='car_val'>{{carInfo.vcExternal.cnkqtj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>车载冰箱</view>
+            <view class='car_val'>{{carInfo.vcExternal.czbx }}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>倒车视频影像</view>
+            <view class='car_val'>{{carInfo.vcExternal.dcspyx}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>电动后备厢</view>
+            <view class='car_val'>{{carInfo.vcExternal.ddhbx}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>电动天窗</view>
+            <view class='car_val'>{{carInfo.vcExternal.ddtc}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>电动吸合门 </view>
+            <view class='car_val'>{{carInfo.vcExternal.ddxhm}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>电动座椅记忆 </view>
+            <view class='car_val'>{{carInfo.vcExternal.ddzyjy}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>第二排靠背角度调节</view>
+            <view class='car_val'>{{carInfo.vcExternal.depkbjdtj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>第二排座椅移动</view>
+            <view class='car_val'>{{carInfo.vcExternal.depzyyd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>多功能方向盘</view>
+            <view class='car_val'>{{carInfo.vcExternal.dgnfxp}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>第三排座椅 </view>
+            <view class='car_val'>{{carInfo.vcExternal.dspzy}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>定速巡航</view>
+            <view class='car_val'>{{carInfo.vcExternal.dsxh}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>副驾驶位电动调节</view>
+            <view class='car_val'>{{carInfo.vcExternal.fjswddtj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>方向盘电动调节</view>
+            <view class='car_val'>{{carInfo.vcExternal.fxpddtj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'> 方向盘换挡</view>
+            <view class='car_val'>{{carInfo.vcExternal.fxphd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>方向盘加热 </view>
+            <view class='car_val'>{{carInfo.vcExternal.fxpjr}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>方向盘前后调节</view>
+            <view class='car_val'>{{carInfo.vcExternal.fxpqhtj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>方向盘上下调节 </view>
+            <view class='car_val'>{{carInfo.vcExternal.fxpsxtj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后倒车雷达</view>
+            <view class='car_val'>{{carInfo.vcExternal.hdcld}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后排杯架</view>
+            <view class='car_val'>{{carInfo.vcExternal.hpbj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后排独立空调</view>
+            <view class='car_val'>{{carInfo.vcExternal.hpdlkt}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后排座椅按摩</view>
+            <view class='car_val'>{{carInfo.vcExternal.hpzyam}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后排座椅比例放倒</view>
+            <view class='car_val'>{{carInfo.vcExternal.hpzyblfd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后排座椅电动调节</view>
+            <view class='car_val'>{{carInfo.vcExternal.hpzyddtj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后排座椅加热</view>
+            <view class='car_val'>{{carInfo.vcExternal.hpzyjr}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后排座椅通风</view>
+            <view class='car_val'>{{carInfo.vcExternal.hpzytf}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后排座椅整体放倒</view>
+            <view class='car_val'>{{carInfo.vcExternal.hpzyztfd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后座出风口</view>
+            <view class='car_val'>{{carInfo.vcExternal.hzcfk}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后座中央扶手</view>
+            <view class='car_val'>{{carInfo.vcExternal.hzzyfs}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>肩部支撑调节</view>
+            <view class='car_val'>{{carInfo.vcExternal.jbzctj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>驾驶位电动调节 </view>
+            <view class='car_val'>{{carInfo.vcExternal.jswddtj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>铝合金轮毂</view>
+            <view class='car_val'>{{carInfo.vcExternal.lhjly}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>全景天窗</view>
+            <view class='car_val'>{{carInfo.vcExternal.qjtc}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>前雷达</view>
+            <view class='car_val'>{{carInfo.vcExternal.qld}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>前排座椅按摩</view>
+            <view class='car_val'>{{carInfo.vcExternal.qpzyam}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>前排座椅加热</view>
+            <view class='car_val'>{{carInfo.vcExternal.qpzyjr}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>前排座椅通风</view>
+            <view class='car_val'>{{carInfo.vcExternal.qpzytf}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>前座中央扶手</view>
+            <view class='car_val'>{{carInfo.vcExternal.qzzyfs}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>手动空调</view>
+            <view class='car_val'>{{carInfo.vcExternal.sdkt}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>HUD抬头数字显示</view>
+            <view class='car_val'>{{carInfo.vcExternal.ttszxs}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>太阳能天窗</view>
+            <view class='car_val'>{{carInfo.vcExternal.tyntc}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>温度分区控制</view>
+            <view class='car_val'>{{carInfo.vcExternal.wdfqkz}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>行车电脑显示屏</view>
+            <view class='car_val'>{{carInfo.vcExternal.xcdnxsp}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'> 腰部支撑调节</view>
+            <view class='car_val'>{{carInfo.vcExternal.ybzctj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>运动风格座椅</view>
+            <view class='car_val'>{{carInfo.vcExternal.ydfgzy}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>运动外观套件 </view>
+            <view class='car_val'>{{carInfo.vcExternal.ydwgtj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>自动空调</view>
+            <view class='car_val'>{{carInfo.vcExternal.zdkt}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'> 真皮方向盘</view>
+            <view class='car_val'>{{carInfo.vcExternal.zpfxp}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>真皮/仿皮座椅</view>
+            <view class='car_val'>{{carInfo.vcExternal.zpzy}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>座椅高低调节</view>
+            <view class='car_val'>{{carInfo.vcExternal.zygdtj}}</view>
+          </view>
+        </view>
+        <view class='car_tabletit'>变速箱/底盘/车轮配置</view>
+        <view class='car_table'>
+          <view class='car_tr'>
+            <view class='car_name'>备胎规格 </view>
+            <view class='car_val'>{{carInfo.vcGearbox.btgg}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>变速箱类型 </view>
+            <view class='car_val'>{{carInfo.vcGearbox.bxslx}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>车体结构 </view>
+            <view class='car_val'>{{carInfo.vcGearbox.ctjg}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>档位数 </view>
+            <view class='car_val'>{{carInfo.vcGearbox.dws}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后轮胎规格 </view>
+            <view class='car_val'>{{carInfo.vcGearbox.hltgg}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后悬架类型/后悬挂类型 </view>
+            <view class='car_val'>{{carInfo.vcGearbox.hxglx}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后制动器类型 </view>
+            <view class='car_val'>{{carInfo.vcGearbox.hzdqlx}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>简称 </view>
+            <view class='car_val'>{{carInfo.vcGearbox.jc}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>驱动方式 </view>
+            <view class='car_val'>{{carInfo.vcGearbox.qdfs}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>前轮胎规格 </view>
+            <view class='car_val'>{{carInfo.vcGearbox.qltgg}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>前悬架类型/前悬挂类型 </view>
+            <view class='car_val'>{{carInfo.vcGearbox.qxglx}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>前制动器类型 </view>
+            <view class='car_val'>{{carInfo.vcGearbox.qzdqlx}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>四驱形式 </view>
+            <view class='car_val'>{{carInfo.vcGearbox.sqxs}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>驻车制动类型 </view>
+            <view class='car_val'>{{carInfo.vcGearbox.zczdlx}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>助力类型 </view>
+            <view class='car_val'>{{carInfo.vcGearbox.zllx}}</view>
+          </view>
+        </view> 
+        <view class='car_tabletit'>高科技配置</view>
+        <view class='car_table'>
+          <view class='car_tr'>
+            <view class='car_name'>并线辅助 </view>
+            <view class='car_val'>{{carInfo.vcHighTech.bxfz}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>车道偏离预警系统 </view>
+            <view class='car_val'>{{carInfo.vcHighTech.cdplyjxt}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>发动机启停技术 </view>
+            <view class='car_val'>{{carInfo.vcHighTech.fdjqtjs}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>全景摄像头 </view>
+            <view class='car_val'>{{carInfo.vcHighTech.qjsxt}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>夜视系统 </view>
+            <view class='car_val'>{{carInfo.vcHighTech.ysxt}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>自动泊车入位 </view>
+            <view class='car_val'>{{carInfo.vcHighTech.zdbcrw}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>主动刹车/主动安全系统 </view>
+            <view class='car_val'>{{carInfo.vcHighTech.zdscxt}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>中控液晶屏分屏显示 </view>
+            <view class='car_val'>{{carInfo.vcHighTech.zkyjpfpxs}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>自适应巡航 </view>
+            <view class='car_val'>{{carInfo.vcHighTech.zsyxh}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>整体主动转向系统 </view>
+            <view class='car_val'>{{carInfo.vcHighTech.ztzdzxxt}}</view>
+          </view>
+        </view>
+        <view class='car_tabletit'>灯光配置</view>
+        <view class='car_table'>
+          <view class='car_tr'>
+            <view class='car_name'>车窗防夹手功能 </view>
+            <view class='car_val'>{{carInfo.vcLight.ccfjsgn}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>车内氛围灯 </view>
+            <view class='car_val'>{{carInfo.vcLight.cnfwd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>大灯高度可调 </view>
+            <view class='car_val'>{{carInfo.vcLight.ddgdkt}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>大灯清洗装置 </view>
+            <view class='car_val'>{{carInfo.vcLight.ddqxzz}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>大灯随动调节 </view>
+            <view class='car_val'>{{carInfo.vcLight.ddsdtj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>防紫外线/隔热玻璃 </view>
+            <view class='car_val'>{{carInfo.vcLight.fzwxbl}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>感应雨刷 </view>
+            <view class='car_val'>{{carInfo.vcLight.gyys}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后电动车窗 </view>
+            <view class='car_val'>{{carInfo.vcLight.hddcc}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后风挡遮阳帘 </view>
+            <view class='car_val'>{{carInfo.vcLight.hfdzyl}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后排侧隐私玻璃  </view>
+            <view class='car_val'>{{carInfo.vcLight.hpcysbl}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后排侧遮阳帘 </view>
+            <view class='car_val'>{{carInfo.vcLight.hpczyl}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后视镜电动调节 </view>
+            <view class='car_val'>{{carInfo.vcLight.hsjddtj}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后视镜电动折叠 </view>
+            <view class='car_val'>{{carInfo.vcLight.hsjddzd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后视镜加热 </view>
+            <view class='car_val'>{{carInfo.vcLight.hsjjr}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后视镜记忆 </view>
+            <view class='car_val'>{{carInfo.vcLight.hsjjy}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后雨刷 </view>
+            <view class='car_val'>{{carInfo.vcLight.hys}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>LED大灯 </view>
+            <view class='car_val'>{{carInfo.vcLight.leddd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>内后视镜自动防眩目 </view>
+            <view class='car_val'>{{carInfo.vcLight.nhsjzdfxm}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>前电动车窗 </view>
+            <view class='car_val'>{{carInfo.vcLight.qddcc}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>前雾灯 </view>
+            <view class='car_val'>{{carInfo.vcLight.qwd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>日间行车灯 </view>
+            <view class='car_val'>{{carInfo.vcLight.rjxcd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>外后视镜自动防眩目 </view>
+            <view class='car_val'>{{carInfo.vcLight.whsjzdfxm}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>氙气大灯 </view>
+            <view class='car_val'>{{carInfo.vcLight.xqdd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>自动头灯 </view>
+            <view class='car_val'>{{carInfo.vcLight.zdtd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>转向头灯(辅助灯)  </view>
+            <view class='car_val'>{{carInfo.vcLight.zxtd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>遮阳板化妆镜 </view>
+            <view class='car_val'>{{carInfo.vcLight.zybhzj}}</view>
+          </view>
+        </view>
+        <view class='car_tabletit'>多媒体配置</view>
+        <view class='car_table'>
+          <view class='car_tr'>
+            <view class='car_name'>CD支持MP3/WMA </view>
+            <view class='car_val'>{{carInfo.vcMedia.cdzc}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>车载电视 </view>
+            <view class='car_val'>{{carInfo.vcMedia.czds}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>单碟CD </view>
+            <view class='car_val'>{{carInfo.vcMedia.ddcd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>单碟DVD </view>
+            <view class='car_val'>{{carInfo.vcMedia.dddvd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>多碟DVD系统 </view>
+            <view class='car_val'>{{carInfo.vcMedia.dddvdxt}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>多碟CD </view>
+            <view class='car_val'>{{carInfo.vcMedia.duodcd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>定位互动服务 </view>
+            <view class='car_val'>{{carInfo.vcMedia.dwhdfw}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>GPS导航系统 </view>
+            <view class='car_val'>{{carInfo.vcMedia.gps}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后排液晶屏 </view>
+            <view class='car_val'>{{carInfo.vcMedia.hpyjp}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>2-3喇叭扬声器系统 </view>
+            <view class='car_val'>{{carInfo.vcMedia.lbysqxt2}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>4-5喇叭扬声器系统 </view>
+            <view class='car_val'>{{carInfo.vcMedia.lbysqxt4}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>6-7喇叭扬声器系统 </view >
+            <view class='car_val'>{{carInfo.vcMedia.lbysqxt6}}</view> 
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>≥8喇叭扬声器系统 </view>
+            <view class='car_val'>{{carInfo.vcMedia.lbysqxt8}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>蓝牙/车载电话 </view>
+            <view class='car_val'>{{carInfo.vcMedia.lyczdh}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>内置硬盘 </view>
+            <view class='car_val'>{{carInfo.vcMedia.nzyp}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>人机交互系统 </view>
+            <view class='car_val'>{{carInfo.vcMedia.rjjhxt}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>外接音源接口(AUX/USB/iPod等) </view>
+            <view class='car_val'>{{carInfo.vcMedia.wjyyjk}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>虚拟多碟CD </view>
+            <view class='car_val'>{{carInfo.vcMedia.xnddcd}}</view>
+          </view>
+        </view>
+        <view class='car_tabletit'>安全装备</view>
+        <view class='car_table'>
+          <view class='car_tr'>
+            <view class='car_name'>安全带未系提示 </view>
+            <view class='car_val'>{{carInfo.vcSafety.aqdwjts}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>车内中控锁 </view>
+            <view class='car_val'>{{carInfo.vcSafety.cnzks}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>ISOFIX儿童座椅接口 </view>
+            <view class='car_val'>{{carInfo.vcSafety.etzyjk}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>发动机电子防盗 </view>
+            <view class='car_val'>{{carInfo.vcSafety.fdjdzfd}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>副驾驶安全气囊 </view>
+            <view class='car_val'>{{carInfo.vcSafety.fjsaqqn}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后排侧气囊 </view>
+            <view class='car_val'>{{carInfo.vcSafety.hpcqn}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>后排头部气囊(气帘) </view>
+            <view class='car_val'>{{carInfo.vcSafety.hptbqnql}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>驾驶座安全气囊 </view>
+            <view class='car_val'>{{carInfo.vcSafety.jszaqqn}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>零胎压继续行驶 </view>
+            <view class='car_val'>{{carInfo.vcSafety.ltyjxxs}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>前排侧气囊 </view>
+            <view class='car_val'>{{carInfo.vcSafety.qpcqn}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>前排头部气囊(气帘) </view>
+            <view class='car_val'>{{carInfo.vcSafety.qptbqnql}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>胎压监测装置 </view>
+            <view class='car_val'>{{carInfo.vcSafety.tyjczz}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>无钥匙进入系统 </view>
+            <view class='car_val'>{{carInfo.vcSafety.wysjrxt}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>无钥匙启动系统 </view>
+            <view class='car_val'>{{carInfo.vcSafety.wysqdxt}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>膝部气囊 </view>
+            <view class='car_val'>{{carInfo.vcSafety.xbqn}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>遥控钥匙 </view>
+            <view class='car_val'>{{carInfo.vcSafety.ykys}}</view>
+          </view>
+          <view class='car_tr'>
+            <view class='car_name'>LATCH座椅接口(兼容ISOFIX) </view>
+            <view class='car_val'>{{carInfo.vcSafety.zyjk}}</view>
+          </view>
+        </view> 
+      </view>
+      <view wx:if="{{tabActive == 3}}" class='detail_info'>
+        <!-- 购车说明 -->
+        <view class='quesmodel_box'>
+          <view class='quesmodel_tit flex_lc'><text>购车说明</text></view>
+          <view class='ques_box'>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              在哪里可以预约门店？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>
+                U-car公众号在线填写预约信息（预约车型、姓名、手机号），即可完成预约。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              如何申请金融方案？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>
+                可通过U-car公众号申请或是联系店端销售人员。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              申请金融方案需要什么材料？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>
+                不同金融方案要求的材料不同，具体需咨询当地门店。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              首付完成后，多久可以提车？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>
+                一般情况下一周内即可提车，具体需与店端确认。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              我可以申请怎样的首付比例？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>
+                依据不同资信情况，最低一成。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              如何进行尾款购车？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>
+                用户具有当地上牌资质，一次性支付尾款，车辆即可过户到用户名下，详细操作联系店端工作人员。。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              如何进行分期购车？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>
+                对尾款申请36期分期的方式购买车辆，详细操作联系店端工作人员。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+          </view>
+        </view>
+        <!-- 费用说明 -->
+        <view class='quesmodel_box'>
+          <view class='quesmodel_tit flex_lc'><text>费用说明</text></view>
+          <view class='ques_box'>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              车辆金融方案是按指导价计算的吗？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>一般情况下参考车辆指导价。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              在哪里预约门店？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>首付款、首期月供及相应手续费。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              租赁期间如何还款？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>指定银行卡，每月自动扣款。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+          </view>
+        </view>
+        <!-- 租后方案 -->
+        <view class='quesmodel_box'>
+          <view class='quesmodel_tit flex_lc'><text>租后方案</text></view>
+          <view class='ques_box'>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              用车满1年后，如何处置车辆？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>
+                支持一次性付清尾款购车或分36期月供购车；部分车辆不支持退还车辆或续租。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              用车满1年后，如何进行续租？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>
+                在当前租赁期最后一期，可提出申请续租，是否具有续租资质，由U-car决定；根据尾款金额计算月供费用；详细操作联系店端工作人员。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              用车满1年后，是否可以退车？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>
+                需要在租赁到期前将车辆退回至指定地点；按协议约定处理其他事项；
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              一年以后过户车牌是否可以过户？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>
+                客户需具备当地上牌资质，同时，客户已有车牌。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              用户超出里程怎么办？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>
+                详细需咨询当地店端具体操作处理。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              去哪里进行保养？汽车保养需要准备哪些资料？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>
+                去4S店定期保养，首年送保养，第二年保养费用可以从U享券里抵扣（一次一张抵扣200元），准备材料请和保养的店端确认。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+          </view>
+        </view>
+        <!-- 用车规则 -->
+        <view class='quesmodel_box'>
+          <view class='quesmodel_tit flex_lc'><text>用车规则</text></view>
+          <view class='ques_box'>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              用户超出里程怎么办？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>详细需咨询当地店端具体操作处理。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+          </view>
+        </view>
+        <!-- 保险服务 -->
+        <view class='quesmodel_box'>
+          <view class='quesmodel_tit flex_lc'><text>保险服务</text></view>
+          <view class='ques_box'>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              租赁期间保险费用
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>送首年保险。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+          </view>
+          <view class='ques_box'>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              发生事故如何处理和保险理赔？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>去U-car进行出险备案，并去指定4S店维修；超出保险理赔范畴的，客户自行承担。。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+          </view>
+          <view class='ques_box'>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              如何加险？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>联系U-car客服申请；差价金额由客户补充。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+          </view>
+        </view>
+        <!-- 其他问题 -->
+        <view class='quesmodel_box noborder'>
+          <view class='quesmodel_tit flex_lc'><text>其他问题</text></view>
+          <view class='ques_box'>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              提车之前，想要退车怎么办？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>按照协议规定，需缴纳约定的违约金，指导车价的10%。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+          </view>
+          <view class='ques_box'>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              汽车是归谁的？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>租赁期间属于U-car；若选择一次性结清尾款或分期购车后过户给用户。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+          </view>
+          <view class='ques_box'>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              上牌是谁负责的？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>U-car。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+          </view>
+          <view class='ques_box'>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              限购城市的话，汽车上牌都是什么城市？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>尽量提供当地牌照，但限购城市无法完全保证。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+          </view>
+          <view class='ques_box'>
+            <view class='question'>
+              <image class='ques_icon' src="./../../images/detail_q.png"/>  
+              如何办理ETC？
+            </view>
+            <view class='answer_box'>
+              <view class='answer_font'>U-car提供资料，客户自行办理。
+              </view>
+              <image class='answer_icon' src="./../../images/detail_a.png"/>  
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 按钮 -->
+  <!-- <view class='bottom_btn flex_cc'>立即预约</view> -->
+  <!-- url="/pages/detail/detail?val={{item.vehicleId}}" -->
+  <navigator class='bottom_btn flex_cc' hover-class="none" url="/pages/appoint/appoint?val={{val}}">立即预约</navigator>
+
+</view>

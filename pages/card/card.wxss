@@ -1,0 +1,62 @@
+.card_box{
+  width: 100%;
+}
+.cardtit_box{
+  width: 100%;
+  position: relative;
+}
+.cardtit_box .tit_icon{
+  width: 100%;
+}
+.cardtit_box .card_username{
+  position: absolute;
+  top: 180rpx;
+  left: 350rpx;
+  color: #fbe19c;
+}
+.card_username .card_item{
+  font-size: 26rpx;
+  padding: 6rpx 0rpx;
+}
+.card_username .card_item text{
+  padding-left: 24rpx;
+}
+.card_username .card_item text.big{
+  font-size: 32rpx
+}
+.card_num{
+  width: 250rpx;
+  font-size: 26rpx;
+  position: absolute;
+  bottom: 30rpx;
+  right: 60rpx;
+  color: #fbe19c;
+}
+.card_num text{
+  padding-left: 24rpx;
+}
+/* 进度 */
+.prosess_box{
+  margin-top: 60rpx;
+  width: 100%;
+  height: 80rpx;
+  padding: 0rpx 25rpx;
+}
+.prosess_box image{
+  width: 100%;
+}
+.member_info{
+  /* margin-top: 10rpx; */
+  width: 100%;
+  padding: 0rpx 25rpx 30rpx 25rpx;
+}
+.member_info image{
+  width: 100%;
+}
+ .member_info .membertit_font{
+  padding: 35rpx 0rpx 30rpx 0rpx;
+  color: #333333;
+  font-size: 32rpx;
+} 
+
+

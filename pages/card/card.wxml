@@ -1,0 +1,17 @@
+<!--会员卡-->
+<view class="card_box">
+  <view class='cardtit_box'>
+    <image class='tit_icon' mode="widthFix" src="./../../images/membertit_bg.png"/>
+    <view class='card_username'>
+      <view class='card_item'>姓名<text>{{cardInfo.name}}</text></view>
+      <view class='card_item'>积分<text class='big'>{{cardInfo.credits}}</text></view>
+    </view>
+    <view class='card_num'>卡号<text>{{cardInfo.cardCode}}</text></view>
+  </view>
+  <!-- 进度 -->
+  <view class='prosess_box'><image src="./../../images/member_process.png" mode="widthFix"/></view>
+  <view class='member_info'>
+    <view class='membertit_font'>U享券会员权益</view>
+    <image bindtap='quantity' src="./../../images/member_info.png" mode="widthFix"/>
+  </view>
+</view>

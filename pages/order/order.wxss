@@ -1,0 +1,82 @@
+/* banner图片 */
+.order_banner{
+  width: 100%;
+  height: 370rpx; 
+}
+.order_banner image{
+  width: 100%;
+  height: 100%;
+}
+/* title */
+.info_title{
+  color: #666666;
+  padding:14rpx 0rpx 14rpx 30rpx;
+  background-color: #f7f7f7;
+  font-size: 28rpx;
+}
+/* 金融方案 */
+.finance_box{
+  width: calc(100% - 90rpx);
+  padding-right: 30rpx;
+}
+.finance_item>text{
+  font-size: 28rpx;
+  color: #666666;
+}
+.finance_item .finance_radio{
+  width: 40rpx;
+  height: 40rpx;
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+.finance_item .finance_radio.finance_active{
+  background-color: #ff6e13;
+  border: 1px solid #ff6e13;
+}
+.finance_item .finance_radio text{
+  color: #ffffff;
+   font-size: 28rpx; 
+}
+/* 用户信息 */
+.userinfo_box{
+  background-color: #ffffff;
+  padding-left: 30rpx;
+}
+.userinfo_box .userinfo_tr{
+  height: 92rpx;
+}
+.userinfo_box .tr_border{
+  border-bottom:1px solid #dedede;
+}
+.userinfo_box .userinfo_tr .formlabel{
+  /* font-size: 28rpx; */
+  color: #333333;
+}
+.userinfo_box .userinfo_tr .formname{
+  width: 450rpx;
+  /* font-size: 28rpx; */
+  color: #666666;
+  text-align: right;
+  height: 100%;
+  padding-right: 30rpx;
+}
+.userinfo_box .userinfo_tr .formphone{
+  /* font-size: 28rpx; */
+  color: #666666;
+  padding-right: 30rpx;
+}
+/* 按钮 */
+.formbtn_box{
+  padding:30rpx 30rpx 30rpx 0rpx;
+}
+.formbtn_box .form_btn{
+  height: 80rpx;
+  color: #ffffff;
+  font-size:30rpx;
+  border-radius: 10rpx;
+  background-image: linear-gradient(90deg, #1e9df7 0%, #0070c0 100%), linear-gradient( #f1f1f4, #f1f1f4);
+}
+
+
+

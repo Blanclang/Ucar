@@ -1,0 +1,38 @@
+.login_box{
+  width: 100%;
+  padding: 80rpx;
+  padding-top: 200rpx;
+}
+.login_icon{
+  flex-direction: column;
+}
+.login_icon text{
+  color: #0070c0;
+  font-size: 110rpx;
+}
+.login_icon image{
+  width: 110rpx;
+  height: 110rpx;
+}
+.login_icon .login_tit{
+  margin-top: 10rpx;
+  color: #292929;
+  font-size: 40rpx;
+}
+.login_btn{
+  margin-top: 350rpx;
+  height: 85rpx;
+  line-height: 85rpx;
+  font-size: 32rpx;
+  color: #ffffff;
+  background-image: linear-gradient(90deg,  #1e9df7 0%,  #0070c0 100%),  linear-gradient( #29a921,  #29a921);
+  box-shadow:0px 4px 3px 0px rgba(0, 96, 255, 0.28);
+
+}
+
+
+
+
+
+
+

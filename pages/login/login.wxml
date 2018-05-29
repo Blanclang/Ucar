@@ -1,0 +1,9 @@
+<!--登陆-->
+<view class="login_box">
+  <view class='login_icon flex_cc'>
+    <!-- <text class='iconfont icon-UxiangcheLOGO'></text> -->
+     <image src="./../../images/logo.png"/> 
+    <view class='login_tit'>U享车</view>
+  </view>
+  <button class='login_btn' open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登陆</button>  
+</view>

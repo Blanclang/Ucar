@@ -1,0 +1,62 @@
+.result_box{
+  width: 100%;
+  height: 100vh;
+}
+.result_con{
+  width: 100%;
+  padding: 0px 40rpx 120rpx 40rpx;
+  flex-direction: column;
+}
+.result_con .result_icon{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  background-color: #09bb07;
+  color: #ffffff;
+}
+.result_con .result_icon text{
+  font-size: 95rpx;
+  font-weight: bold;
+}
+.result_con .result_tit{
+  margin-top: 60rpx;
+  font-size: 38rpx;
+  color: #666666;
+}
+.result_con .result_tip{
+  margin-top: 40rpx;
+  width: 430rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  color: #999999;
+}
+.result_con .result_btn{
+  margin-top: 120rpx;
+  height: 88rpx;
+  width: 100%;
+  border: 1px solid #c6c6c6;
+  color: #333333;
+  font-size: 34rpx;
+  border-radius: 10rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,189 @@
+.detail_cons{
+  padding-bottom: 90rpx;
+}
+.carinfo_item{
+  width: 100%;
+  padding: 16rpx 20rpx;
+}
+.carinfo_item .carimg{
+   width: 270rpx;
+   height: 180rpx;
+    /* border: 1px solid pink;  */
+}
+.carinfo_item .carinfo_con{
+  width:calc(100% - 270rpx);
+  padding-left: 22rpx;
+}
+.carinfo_con .car_tit{
+  color: #333333;
+  font-weight: bold;
+}
+.carinfo_con .car_style{
+  margin-top: 10rpx;
+  font-size:26rpx;
+  color: #666666;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.carinfo_con .car_Price{
+  margin-top: 2rpx;
+  font-size:26rpx;
+  color: #666666;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.carinfo_con .car_fee{
+  margin-top: 16rpx;
+  color: #e84c49;
+  font-weight: bold;
+  font-size:26rpx;
+  padding-right: 10rpx;
+}
+/* 详情 */
+.detail_box{
+  border-top: 15rpx solid #f1f1f4;
+}
+.detail_box .detail_tabs{
+  width: 100%;
+  border-bottom: 1rpx solid #bebfc1;
+}
+.detail_tabs .tab_cell{
+  width: 33.33%;
+  height: 90rpx;
+  color: #666666;
+  border-bottom: 4rpx solid #ffffff;
+}
+.detail_tabs .tab_cell.tab_active{
+  color: #0070c0;
+  border-bottom: 4rpx solid #0070c0;
+}
+/* 车辆参数表格 */
+.detail_info{
+}
+.detail_padd{
+  padding-top: 20rpx;
+}
+.car_tabletit{
+  padding: 20rpx 15rpx;
+  color: #0070c0;
+  font-weight: bold;
+}
+.car_table .car_tr{
+   border-bottom: 1rpx solid #ebebeb;
+   display: flex;
+}
+.car_table .car_tr:first-child{
+   border-top: 1rpx solid #ebebeb; 
+}
+.car_table .car_tr:nth-child(even){
+  background-color: #f7f7f7;
+}
+.car_table .car_tr .car_name{
+  width: 40%;
+  padding:20rpx 10rpx 20rpx 10px; 
+  font-size: 28rpx;
+  color: #333333;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  word-wrap:break-all;
+}
+.car_table .car_tr .car_val{
+  width: 60%;
+  padding:20rpx 10rpx 20rpx 10px; 
+  font-size: 26rpx;
+  border-left: 1rpx solid #ebebeb;
+  color: #999999;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  word-break:break-all;
+}
+
+/* 按钮 */
+.bottom_btn{
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 100%;
+  height: 90rpx;
+  color: #ffffff;
+  font-size:35rpx;
+  background-image: linear-gradient(90deg, #1e9df7 0%, #0070c0 100%), linear-gradient( #f1f1f4, #f1f1f4);
+}
+/* 常见问题 */
+.quesmodel_box{
+  padding: 0rpx 30rpx 0rpx 30rpx;
+  border-bottom: 15rpx solid #f1f1f4;
+}
+.quesmodel_box.noborder{
+  border-bottom:none;
+}
+.quesmodel_tit{
+  height: 90rpx;
+  border-bottom: 1rpx solid #d7d7d7;
+}
+.quesmodel_tit text{
+  padding-left: 25rpx;
+  font-size: 30rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  border-left: 8rpx solid #0070c0;
+}
+.ques_box{
+  padding-bottom: 10rpx;
+}
+.ques_box .question{
+  padding: 20rpx 0rpx 15rpx 50rpx;
+  color: #333333;
+  font-size: 28rpx;
+  position: relative;
+}
+.question .ques_icon{
+  position: absolute;
+  top: 25rpx;
+  left: 0rpx;
+  width: 34rpx;
+  height: 34rpx;
+}
+.answer_box{
+  padding:10rpx 60rpx 28rpx 30rpx;
+  position: relative;
+}
+.answer_box .answer_font{
+  background-color: #f3f3f3;
+  color: #333333;
+  font-size: 28rpx;
+  border-radius: 6rpx;
+  padding: 10rpx 15rpx;
+}
+.answer_box .answer_icon{
+  position: absolute;
+  bottom: 10rpx;
+  right: 0rpx;
+  width: 42rpx;
+  height: 42rpx;
+}
+/* 产品详情 */
+.product_detail{
+  width: 100%;
+}
+.product_detail image{
+  width: 100%;
+  height: 100%;
+}
+.detail_img{
+  width: 100%;
+  padding: 20rpx 20rpx 50rpx 20rpx;
+}
+.detail_img image{
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+
+
+

@@ -1,0 +1,12 @@
+<!--结果页面-->
+<view class="result_box flex_cc">
+  <view class='result_con flex_cc'>
+    <view class='result_icon flex_cc'>
+      <text class='iconfont icon-duihao'></text>
+    </view>
+    <view class='result_tit'>预约成功</view>
+    <view class='result_tip'>金融顾问将在24小时内与您联系。</view>
+    <!-- <navigator class='result_btn flex_cc' open-type="redirect" url="/pages/home/home" hover-class="navigator-hover">返回首页</navigator> -->
+    <view class='result_btn flex_cc' bindtap='toHome'>返回首页</view>
+  </view>
+</view>
